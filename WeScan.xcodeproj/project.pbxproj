@@ -15,6 +15,8 @@
 		74F7D03A211ACC4B0046AF7E /* UIImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7D039211ACC4B0046AF7E /* UIImageTests.swift */; };
 		74F7D03C211ACC6B0046AF7E /* CGAffineTransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7D03B211ACC6B0046AF7E /* CGAffineTransformTests.swift */; };
 		74F7D03E211ACC890046AF7E /* AVCaptureVideoOrientationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7D03D211ACC890046AF7E /* AVCaptureVideoOrientationTests.swift */; };
+		759D9ECA24B3C69D00B25736 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D9EC924B3C69D00B25736 /* UIColor+Utils.swift */; };
+		759D9ECC24B3C6E800B25736 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D9ECB24B3C6E800B25736 /* Colors.swift */; };
 		8A1BB199249C9B45000278F2 /* UIImage+SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1BB198249C9B45000278F2 /* UIImage+SFSymbol.swift */; };
 		A11C5B9C2046A20C005075FE /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C5B9B2046A20C005075FE /* Error.swift */; };
 		A11C5CD920495EA1005075FE /* RectangleFeaturesFunnelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11C5CD820495EA1005075FE /* RectangleFeaturesFunnelTests.swift */; };
@@ -200,6 +202,8 @@
 		74F7D03D211ACC890046AF7E /* AVCaptureVideoOrientationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoOrientationTests.swift; sourceTree = "<group>"; };
 		75629CE3241664D2008777A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		75629CE4241664E0008777A5 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		759D9EC924B3C69D00B25736 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		759D9ECB24B3C6E800B25736 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		82A414A022B9391B00DF5831 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8A1BB198249C9B45000278F2 /* UIImage+SFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SFSymbol.swift"; sourceTree = "<group>"; };
 		9541C84122155DD3005FBCD3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -445,6 +449,7 @@
 				A1C4DD4D2044ADE600D36684 /* CGRect+Utils.swift */,
 				B9253F3E22190B7400C5DE7C /* CGSize+Utils.swift */,
 				B9274D39219B951000F9FCD1 /* CIImage+Utils.swift */,
+				759D9EC924B3C69D00B25736 /* UIColor+Utils.swift */,
 				C3E2EB8D20B8970800A42E58 /* UIImage+Utils.swift */,
 				A1DF90F52037187500841A11 /* UIImage+Orientation.swift */,
 				8A1BB198249C9B45000278F2 /* UIImage+SFSymbol.swift */,
@@ -466,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				A1DF90A320331A0B00841A11 /* CIRectangleDetector.swift */,
+				759D9ECB24B3C6E800B25736 /* Colors.swift */,
 				B992E830210C36A400C33A21 /* VisionRectangleDetector.swift */,
 				A1F22E9E202C8D70001723AD /* Quadrilateral.swift */,
 				A1F22E98202C7B66001723AD /* QuadrilateralView.swift */,
@@ -860,9 +866,11 @@
 				A11C5CDB20495EC9005075FE /* AVCaptureVideoOrientation+Utils.swift in Sources */,
 				A1DF90F22035992A00841A11 /* CGAffineTransform+Utils.swift in Sources */,
 				A1F22EA3202DAA74001723AD /* RectangleFeaturesFunnel.swift in Sources */,
+				759D9ECC24B3C6E800B25736 /* Colors.swift in Sources */,
 				A1D4BD0E202C57A400FCDDEC /* CaptureSessionManager.swift in Sources */,
 				B9AAE88B219E6C0400205620 /* FocusRectangleView.swift in Sources */,
 				A1F22ECE2031937E001723AD /* EditScanViewController.swift in Sources */,
+				759D9ECA24B3C69D00B25736 /* UIColor+Utils.swift in Sources */,
 				A1F22E9F202C8D70001723AD /* Quadrilateral.swift in Sources */,
 				A1DF90E420358CB100841A11 /* Transformable.swift in Sources */,
 				B9253F3F22190B7400C5DE7C /* CGSize+Utils.swift in Sources */,

@@ -45,7 +45,6 @@ final class ScannerViewController: UIViewController {
     private lazy var autoScanButton: UIBarButtonItem = {
         let title = NSLocalizedString("wescan.scanning.auto", tableName: nil, bundle: Bundle(for: ScannerViewController.self), value: "Auto", comment: "The auto button state")
         let button = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(toggleAutoScan))
-        button.tintColor = .white
         
         return button
     }()
@@ -53,7 +52,7 @@ final class ScannerViewController: UIViewController {
     private lazy var flashButton: UIBarButtonItem = {
         let image = UIImage(systemName: "bolt.fill", named: "flash", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(toggleFlash))
-        button.tintColor = .white
+        button.tintColor = Colors.gray
         
         return button
     }()
@@ -134,7 +133,7 @@ final class ScannerViewController: UIViewController {
         if UIImagePickerController.isFlashAvailable(for: .rear) == false {
             let flashOffImage = UIImage(systemName: "bolt.slash.fill", named: "flashUnavailable", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
             flashButton.image = flashOffImage
-            flashButton.tintColor = UIColor.lightGray
+            flashButton.tintColor = Colors.lightGray
         }
     }
     
@@ -251,15 +250,15 @@ final class ScannerViewController: UIViewController {
         case .on:
             flashEnabled = true
             flashButton.image = flashImage
-            flashButton.tintColor = .yellow
+            flashButton.tintColor = Colors.primaryControl
         case .off:
             flashEnabled = false
             flashButton.image = flashImage
-            flashButton.tintColor = .white
+            flashButton.tintColor = Colors.gray
         case .unknown, .unavailable:
             flashEnabled = false
             flashButton.image = flashOffImage
-            flashButton.tintColor = UIColor.lightGray
+            flashButton.tintColor = Colors.lightGray
         }
     }
     

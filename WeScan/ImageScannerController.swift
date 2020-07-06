@@ -64,13 +64,6 @@ public final class ImageScannerController: UINavigationController {
         super.init(rootViewController: ScannerViewController())
         
         self.imageScannerDelegate = delegate
-        
-        if #available(iOS 13.0, *) {
-            navigationBar.tintColor = .label
-        } else {
-            navigationBar.tintColor = .black
-        }
-        navigationBar.isTranslucent = false
         self.view.addSubview(blackFlashView)
         setupConstraints()
         
