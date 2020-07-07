@@ -50,7 +50,7 @@ final class ScannerViewController: UIViewController {
     }()
     
     private lazy var flashButton: UIBarButtonItem = {
-        let image = UIImage(systemName: "bolt.fill", named: "flash", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
+        let image = UIImage(named: "icon_flash", in: Bundle(for: ScannerViewController.self), compatibleWith: traitCollection)
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(toggleFlash))
         button.tintColor = Colors.gray
         
@@ -84,7 +84,6 @@ final class ScannerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNeedsStatusBarAppearanceUpdate()
         
         CaptureSession.current.isEditing = false
         quadView.removeQuadrilateral()
@@ -243,7 +242,7 @@ final class ScannerViewController: UIViewController {
     @objc private func toggleFlash() {
         let state = CaptureSession.current.toggleFlash()
         
-        let flashImage = UIImage(systemName: "bolt.fill", named: "flash", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
+        let flashImage = UIImage(named: "icon_flash", in: Bundle(for: ScannerViewController.self), compatibleWith: traitCollection)
         let flashOffImage = UIImage(systemName: "bolt.slash.fill", named: "flashUnavailable", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
         
         switch state {

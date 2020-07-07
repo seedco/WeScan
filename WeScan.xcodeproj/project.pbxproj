@@ -15,6 +15,9 @@
 		74F7D03A211ACC4B0046AF7E /* UIImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7D039211ACC4B0046AF7E /* UIImageTests.swift */; };
 		74F7D03C211ACC6B0046AF7E /* CGAffineTransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7D03B211ACC6B0046AF7E /* CGAffineTransformTests.swift */; };
 		74F7D03E211ACC890046AF7E /* AVCaptureVideoOrientationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7D03D211ACC890046AF7E /* AVCaptureVideoOrientationTests.swift */; };
+		7558D5D524B5135D008B4436 /* icon_flash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7558D5D224B5135D008B4436 /* icon_flash@3x.png */; };
+		7558D5D624B5135D008B4436 /* icon_flash.png in Resources */ = {isa = PBXBuildFile; fileRef = 7558D5D324B5135D008B4436 /* icon_flash.png */; };
+		7558D5D724B5135D008B4436 /* icon_flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7558D5D424B5135D008B4436 /* icon_flash@2x.png */; };
 		759D9ECA24B3C69D00B25736 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D9EC924B3C69D00B25736 /* UIColor+Utils.swift */; };
 		759D9ECC24B3C6E800B25736 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759D9ECB24B3C6E800B25736 /* Colors.swift */; };
 		8A1BB199249C9B45000278F2 /* UIImage+SFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1BB198249C9B45000278F2 /* UIImage+SFSymbol.swift */; };
@@ -200,6 +203,9 @@
 		74F7D039211ACC4B0046AF7E /* UIImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageTests.swift; sourceTree = "<group>"; };
 		74F7D03B211ACC6B0046AF7E /* CGAffineTransformTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAffineTransformTests.swift; sourceTree = "<group>"; };
 		74F7D03D211ACC890046AF7E /* AVCaptureVideoOrientationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureVideoOrientationTests.swift; sourceTree = "<group>"; };
+		7558D5D224B5135D008B4436 /* icon_flash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_flash@3x.png"; sourceTree = "<group>"; };
+		7558D5D324B5135D008B4436 /* icon_flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_flash.png; sourceTree = "<group>"; };
+		7558D5D424B5135D008B4436 /* icon_flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_flash@2x.png"; sourceTree = "<group>"; };
 		75629CE3241664D2008777A5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		75629CE4241664E0008777A5 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		759D9EC924B3C69D00B25736 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
@@ -338,6 +344,16 @@
 				74E278692154528300361812 /* FBSnapshotTestCase tvOS Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7558D5D824B51364008B4436 /* Icon Flash */ = {
+			isa = PBXGroup;
+			children = (
+				7558D5D324B5135D008B4436 /* icon_flash.png */,
+				7558D5D424B5135D008B4436 /* icon_flash@2x.png */,
+				7558D5D224B5135D008B4436 /* icon_flash@3x.png */,
+			);
+			name = "Icon Flash";
 			sourceTree = "<group>";
 		};
 		A1675BA92041692800852865 /* Resources */ = {
@@ -536,6 +552,7 @@
 		B94FBB9D2178647B001ED1B4 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				7558D5D824B51364008B4436 /* Icon Flash */,
 				B9E49DB421BFCE7A000E994D /* Rotate */,
 				B983380121A6CA4E00AAE307 /* Enhance */,
 				B9274D2D219AE10B00F9FCD1 /* Flash */,
@@ -785,6 +802,9 @@
 				B9E49DC021BFD3BB000E994D /* rotate@3x.png in Resources */,
 				B97B49C9216C6C6800B2235B /* Localizable.strings in Resources */,
 				B9E49DBF21BFD3BB000E994D /* rotate@2x.png in Resources */,
+				7558D5D624B5135D008B4436 /* icon_flash.png in Resources */,
+				7558D5D724B5135D008B4436 /* icon_flash@2x.png in Resources */,
+				7558D5D524B5135D008B4436 /* icon_flash@3x.png in Resources */,
 				B94FBBB52178653C001ED1B4 /* flashUnavailable@2x.png in Resources */,
 				B94FBBAD2178652B001ED1B4 /* flash.png in Resources */,
 				B94FBBAF2178652B001ED1B4 /* flash@2x.png in Resources */,
