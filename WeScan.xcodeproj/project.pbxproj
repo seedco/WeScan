@@ -70,9 +70,6 @@
 		B940E3DC21AE2A64003B3C0B /* CaptureSession+Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = B940E3DB21AE2A64003B3C0B /* CaptureSession+Flash.swift */; };
 		B940E3DE21AE2A79003B3C0B /* CaptureSession+Focus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B940E3DD21AE2A79003B3C0B /* CaptureSession+Focus.swift */; };
 		B94E76AC221AB7D100C1945D /* CGSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94E76AB221AB7D100C1945D /* CGSizeTests.swift */; };
-		B94FBBAD2178652B001ED1B4 /* flash.png in Resources */ = {isa = PBXBuildFile; fileRef = B94FBBAA2178652B001ED1B4 /* flash.png */; };
-		B94FBBAE2178652B001ED1B4 /* flash@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B94FBBAB2178652B001ED1B4 /* flash@3x.png */; };
-		B94FBBAF2178652B001ED1B4 /* flash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B94FBBAC2178652B001ED1B4 /* flash@2x.png */; };
 		B94FBBB32178653C001ED1B4 /* flashUnavailable@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B94FBBB02178653C001ED1B4 /* flashUnavailable@3x.png */; };
 		B94FBBB42178653C001ED1B4 /* flashUnavailable.png in Resources */ = {isa = PBXBuildFile; fileRef = B94FBBB12178653C001ED1B4 /* flashUnavailable.png */; };
 		B94FBBB52178653C001ED1B4 /* flashUnavailable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B94FBBB22178653C001ED1B4 /* flashUnavailable@2x.png */; };
@@ -268,9 +265,6 @@
 		B940E3DB21AE2A64003B3C0B /* CaptureSession+Flash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaptureSession+Flash.swift"; sourceTree = "<group>"; };
 		B940E3DD21AE2A79003B3C0B /* CaptureSession+Focus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CaptureSession+Focus.swift"; sourceTree = "<group>"; };
 		B94E76AB221AB7D100C1945D /* CGSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTests.swift; sourceTree = "<group>"; };
-		B94FBBAA2178652B001ED1B4 /* flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flash.png; sourceTree = "<group>"; };
-		B94FBBAB2178652B001ED1B4 /* flash@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@3x.png"; sourceTree = "<group>"; };
-		B94FBBAC2178652B001ED1B4 /* flash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash@2x.png"; sourceTree = "<group>"; };
 		B94FBBB02178653C001ED1B4 /* flashUnavailable@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flashUnavailable@3x.png"; sourceTree = "<group>"; };
 		B94FBBB12178653C001ED1B4 /* flashUnavailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flashUnavailable.png; sourceTree = "<group>"; };
 		B94FBBB22178653C001ED1B4 /* flashUnavailable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flashUnavailable@2x.png"; sourceTree = "<group>"; };
@@ -518,16 +512,6 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
-		B9274D2D219AE10B00F9FCD1 /* Flash */ = {
-			isa = PBXGroup;
-			children = (
-				B94FBBAA2178652B001ED1B4 /* flash.png */,
-				B94FBBAC2178652B001ED1B4 /* flash@2x.png */,
-				B94FBBAB2178652B001ED1B4 /* flash@3x.png */,
-			);
-			name = Flash;
-			sourceTree = "<group>";
-		};
 		B9274D30219AE16000F9FCD1 /* FlashUnavailable */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,7 +539,6 @@
 				7558D5D824B51364008B4436 /* Icon Flash */,
 				B9E49DB421BFCE7A000E994D /* Rotate */,
 				B983380121A6CA4E00AAE307 /* Enhance */,
-				B9274D2D219AE10B00F9FCD1 /* Flash */,
 				B9274D30219AE16000F9FCD1 /* FlashUnavailable */,
 			);
 			path = Assets;
@@ -806,12 +789,9 @@
 				7558D5D724B5135D008B4436 /* icon_flash@2x.png in Resources */,
 				7558D5D524B5135D008B4436 /* icon_flash@3x.png in Resources */,
 				B94FBBB52178653C001ED1B4 /* flashUnavailable@2x.png in Resources */,
-				B94FBBAD2178652B001ED1B4 /* flash.png in Resources */,
-				B94FBBAF2178652B001ED1B4 /* flash@2x.png in Resources */,
 				B940E38C21A77192003B3C0B /* enhance.png in Resources */,
 				B94FBBB32178653C001ED1B4 /* flashUnavailable@3x.png in Resources */,
 				B9E49DBE21BFD3BB000E994D /* rotate.png in Resources */,
-				B94FBBAE2178652B001ED1B4 /* flash@3x.png in Resources */,
 				B940E38A21A77192003B3C0B /* enhance@3x.png in Resources */,
 				B940E38B21A77192003B3C0B /* enhance@2x.png in Resources */,
 				B94FBBB42178653C001ED1B4 /* flashUnavailable.png in Resources */,

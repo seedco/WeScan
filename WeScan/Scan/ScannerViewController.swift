@@ -70,6 +70,7 @@ final class ScannerViewController: UIViewController {
         super.viewDidLoad()
         
         title = nil
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         setupViews()
         setupNavigationBar()
