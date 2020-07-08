@@ -60,6 +60,8 @@ public final class ImageScannerController: UINavigationController {
         return .portrait
     }
     
+    public override var preferredStatusBarStyle: UIStatusBarStyle { .default }
+    
     public required init(image: UIImage? = nil, delegate: ImageScannerControllerDelegate? = nil) {
         super.init(rootViewController: ScannerViewController())
         
