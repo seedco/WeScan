@@ -39,7 +39,7 @@ final class ReviewViewController: UIViewController {
     }()
     
     private lazy var doneButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finishScan))
+        let button = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(finishScan))
         return button
     }()
     
