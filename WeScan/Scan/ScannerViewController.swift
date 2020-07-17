@@ -20,6 +20,8 @@ final class ScannerViewController: UIViewController {
     
     /// The view that draws the detected rectangles.
     private let quadView = QuadrilateralView()
+    
+    private let isEditScanEnabled = false
         
     /// Whether flash is enabled
     private var flashEnabled = false
@@ -45,15 +47,14 @@ final class ScannerViewController: UIViewController {
     private lazy var autoScanButton: UIBarButtonItem = {
         let title = NSLocalizedString("wescan.scanning.auto", tableName: nil, bundle: Bundle(for: ScannerViewController.self), value: "Auto", comment: "The auto button state")
         let button = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(toggleAutoScan))
-        button.tintColor = .white
         
         return button
     }()
     
     private lazy var flashButton: UIBarButtonItem = {
-        let image = UIImage(systemName: "bolt.fill", named: "flash", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
+        let image = UIImage(named: "icon_flash", in: Bundle(for: ScannerViewController.self), compatibleWith: traitCollection)
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(toggleFlash))
-        button.tintColor = .white
+        button.tintColor = Colors.gray
         
         return button
     }()
@@ -70,7 +71,7 @@ final class ScannerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = nil
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         setupViews()
         setupNavigationBar()
@@ -85,7 +86,6 @@ final class ScannerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNeedsStatusBarAppearanceUpdate()
         
         CaptureSession.current.isEditing = false
         quadView.removeQuadrilateral()
@@ -134,7 +134,7 @@ final class ScannerViewController: UIViewController {
         if UIImagePickerController.isFlashAvailable(for: .rear) == false {
             let flashOffImage = UIImage(systemName: "bolt.slash.fill", named: "flashUnavailable", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
             flashButton.image = flashOffImage
-            flashButton.tintColor = UIColor.lightGray
+            flashButton.tintColor = Colors.lightGray
         }
     }
     
@@ -244,22 +244,22 @@ final class ScannerViewController: UIViewController {
     @objc private func toggleFlash() {
         let state = CaptureSession.current.toggleFlash()
         
-        let flashImage = UIImage(systemName: "bolt.fill", named: "flash", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
+        let flashImage = UIImage(named: "icon_flash", in: Bundle(for: ScannerViewController.self), compatibleWith: traitCollection)
         let flashOffImage = UIImage(systemName: "bolt.slash.fill", named: "flashUnavailable", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
         
         switch state {
         case .on:
             flashEnabled = true
             flashButton.image = flashImage
-            flashButton.tintColor = .yellow
+            flashButton.tintColor = Colors.primaryControl
         case .off:
             flashEnabled = false
             flashButton.image = flashImage
-            flashButton.tintColor = .white
+            flashButton.tintColor = Colors.gray
         case .unknown, .unavailable:
             flashEnabled = false
             flashButton.image = flashOffImage
-            flashButton.tintColor = UIColor.lightGray
+            flashButton.tintColor = Colors.lightGray
         }
     }
     
@@ -289,8 +289,54 @@ extension ScannerViewController: RectangleDetectionDelegateProtocol {
     func captureSessionManager(_ captureSessionManager: CaptureSessionManager, didCapturePicture picture: UIImage, withQuad quad: Quadrilateral?) {
         activityIndicator.stopAnimating()
         
-        let editVC = EditScanViewController(image: picture, quad: quad)
-        navigationController?.pushViewController(editVC, animated: false)
+        if isEditScanEnabled {
+            let editVC = EditScanViewController(image: picture, quad: quad)
+            navigationController?.pushViewController(editVC, animated: false)
+        } else {
+            let quadToUse = quad ?? {
+                // Fallback to a quad that covers the whole image.
+                let topLeft = CGPoint.zero
+                let topRight = CGPoint(x: picture.size.width, y: 0)
+                let bottomRight = CGPoint(x: picture.size.width, y: picture.size.height)
+                let bottomLeft = CGPoint(x: 0, y: picture.size.height)
+                
+                let quad = Quadrilateral(topLeft: topLeft, topRight: topRight, bottomRight: bottomRight, bottomLeft: bottomLeft)
+                
+                return quad
+            }()
+            
+            guard let ciImage = CIImage(image: picture) else {
+                if let imageScannerController = navigationController as? ImageScannerController {
+                    let error = ImageScannerControllerError.ciImageCreation
+                    imageScannerController.imageScannerDelegate?.imageScannerController(imageScannerController, didFailWithError: error)
+                }
+                return
+            }
+            
+            let cgOrientation = CGImagePropertyOrientation(picture.imageOrientation)
+            let orientedImage = ciImage.oriented(forExifOrientation: Int32(cgOrientation.rawValue))
+            
+            // Cropped Image
+            var cartesianScaledQuad = quadToUse.toCartesian(withHeight: picture.size.height)
+            cartesianScaledQuad.reorganize()
+            
+            let filteredImage = orientedImage.applyingFilter("CIPerspectiveCorrection", parameters: [
+                "inputTopLeft": CIVector(cgPoint: cartesianScaledQuad.bottomLeft),
+                "inputTopRight": CIVector(cgPoint: cartesianScaledQuad.bottomRight),
+                "inputBottomLeft": CIVector(cgPoint: cartesianScaledQuad.topLeft),
+                "inputBottomRight": CIVector(cgPoint: cartesianScaledQuad.topRight)
+                ])
+            
+            let croppedImage = UIImage.from(ciImage: filteredImage)
+            // Enhanced Image
+            let enhancedImage = filteredImage.applyingAdaptiveThreshold()?.withFixedOrientation()
+            let enhancedScan = enhancedImage.flatMap { ImageScannerScan(image: $0) }
+            
+            let results = ImageScannerResults(detectedRectangle: quadToUse, originalScan: ImageScannerScan(image: picture), croppedScan: ImageScannerScan(image: croppedImage), enhancedScan: enhancedScan)
+            
+            let reviewViewController = ReviewViewController(results: results)
+            navigationController?.pushViewController(reviewViewController, animated: true)
+        }
         
         shutterButton.isUserInteractionEnabled = true
     }

@@ -29,20 +29,17 @@ final class ReviewViewController: UIViewController {
     private lazy var enhanceButton: UIBarButtonItem = {
         let image = UIImage(systemName: "wand.and.rays.inverse", named: "enhance", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(toggleEnhancedImage))
-        button.tintColor = .white
         return button
     }()
     
     private lazy var rotateButton: UIBarButtonItem = {
         let image = UIImage(systemName: "rotate.right", named: "rotate", in: Bundle(for: ScannerViewController.self), compatibleWith: nil)
         let button = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(rotateImage))
-        button.tintColor = .white
         return button
     }()
     
     private lazy var doneButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(finishScan))
-        button.tintColor = navigationController?.navigationBar.tintColor
+        let button = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(finishScan))
         return button
     }()
     
@@ -70,20 +67,6 @@ final class ReviewViewController: UIViewController {
         
         title = NSLocalizedString("wescan.review.title", tableName: nil, bundle: Bundle(for: ReviewViewController.self), value: "Review", comment: "The review title of the ReviewController")
         navigationItem.rightBarButtonItem = doneButton
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // We only show the toolbar (with the enhance button) if the enhanced image is available.
-        if enhancedImageIsAvailable {
-            navigationController?.setToolbarHidden(false, animated: true)
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setToolbarHidden(true, animated: true)
     }
     
     // MARK: Setups
@@ -140,12 +123,6 @@ final class ReviewViewController: UIViewController {
         
         isCurrentlyDisplayingEnhancedImage.toggle()
         reloadImage()
-      
-        if isCurrentlyDisplayingEnhancedImage {
-            enhanceButton.tintColor = .yellow
-        } else {
-            enhanceButton.tintColor = .white
-        }
     }
     
     @objc func rotateImage() {
