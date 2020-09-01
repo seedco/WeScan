@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name              = "Seed-WeScan"
-  s.version           = "1.5.0-seed.0"
+  s.version           = "1.5.0-seed.1"
   s.summary           = "Document Scanning Made Easy for iOS"
   s.description       = "WeScan makes it easy to add scanning functionalities to your iOS app! It\'s modelled after UIImagePickerController, which makes it a breeze to use."
   s.homepage          = "https://github.com/seedco/WeScan"
