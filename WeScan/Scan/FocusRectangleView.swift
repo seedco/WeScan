@@ -21,6 +21,7 @@ final class FocusRectangleView: UIView {
         layer.borderWidth = 2.0
         layer.cornerRadius = 6.0
         layer.borderColor = UIColor.yellow.cgColor
+        isUserInteractionEnabled = false
         
         // Here, we animate the rectangle from the `originalSize` to the `finalSize` by calculating the difference.
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseOut, animations: {
